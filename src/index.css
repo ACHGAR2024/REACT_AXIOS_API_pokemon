@@ -1,0 +1,110 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+.card {
+  width: 200px;
+  height: 280px;
+  margin: 20px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background: url("https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_1.png")
+    center/cover;
+  transform: rotateY(180deg);
+}
+
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.pokemon-name {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.type-badge {
+  padding: 3px 8px;
+  margin: 0 3px;
+  border-radius: 10px;
+  font-size: 10px;
+  color: white;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.card {
+  animation: float 3s ease-in-out infinite;
+}
